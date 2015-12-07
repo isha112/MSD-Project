@@ -1,0 +1,72 @@
+﻿<div class="container" id="edit">
+    <h2>Hello, Would you Like to Add in some Info?</h2>
+    <hr />
+    <div class="row">
+         <div class="col-md-3">
+            <div class="text-center">
+                <img ng-src="{{loc}}" width="100" height="100" class="img-circle" alt="Your Pic Here">
+                <h6>Upload a different photo...</h6>
+
+                <input ng-model="photo" class="form-control" id="filePicker" type="file">
+            </div>
+        </div>
+        <div class="col-md-9 personal-info">
+            <div ng-show="mismatch" class="alert alert-info alert-dismissable">
+                <i class="fa fa-coffee">Please verify the entered password</i>
+                
+            </div>
+            <div ng-show="save" class="alert alert-info alert-dismissable">
+                <i class="fa fa-coffee">Saved</i>
+                
+            </div>
+            <h3>Personal info</h3>
+
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">First name:</label>
+                    <div class="col-lg-8">
+                        <input ng-model="new_fn" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Last name:</label>
+                    <div class="col-lg-8">
+                        <input ng-model="new_ln" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Username:</label>
+                    <div class="col-md-8">
+                        {{currentUser.user_id}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Password:</label>
+                    <div class="col-md-8">
+                        <input ng-model="new_pwd" class="form-control" type="password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Confirm password:</label>
+                    <div class="col-md-8">
+                        <input ng-model="re_pwd" class="form-control" type="password">
+                    </div>
+                </div>
+                <fieldset>
+                    <legend>Choose your favorites!</legend>
+                    <label ng-repeat="pref in prefArr">
+                        <input type="checkbox" checklist-model="selectedPref" checklist-value="pref" />{{pref}}
+                    </label>
+                </fieldset>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <input class="btn btn-primary" value="Save Changes" ng-click="saveChanges()" type="button">
+                        <span></span>
+                        <input class="btn btn-default" value="Cancel" type="reset">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

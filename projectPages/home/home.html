@@ -1,0 +1,68 @@
+﻿
+<div class="row" id="search">
+    <div class="col-md-2">
+        <div style="height:2em"></div>
+    </div>
+    <div class="col-md-8">
+        <div class="input-group">
+            <input type="text" id="cityname" class="form-control" placeholder="Enter location" ng-model="location" />
+            <span class="input-group-btn">
+                <button ng-click="searchEvents()" class="btn btn-primary">Search</button>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div style="height:2em"></div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div style="height:2em"></div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div id="map"></div>
+    <div id="class" ng-repeat="marker in markers | orderBy : 'title'">
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div style="height:2em"></div>
+    </div>
+</div>
+<div class="container">
+    <h3>Events Near you</h3>
+    <section id="demo" ng-show="events">
+        
+        <article ng-repeat="event in events" class="white-panel">
+            <img ng-src="{{event.image.large.url || altimg}}" />
+
+            <h4>{{event.title}}</h4>
+            <p>
+                <label>{{event.venue_name}}</label><br />
+                <label>{{event.venue_address}}</label><br />
+                <label>{{event.start_time}}</label>
+            </p>
+        </article>
+
+    </section>
+    <div class="container">
+        <h3 ng-show="currentUser.preferences">Your Recommendations!!</h3>
+        <section id="demor" ng-show="currentUser.preferences">
+
+            <article ng-repeat="revent in rEvents" class="white-panel">
+                <img ng-src="{{revent.image.large.url || altimg}}" />
+
+                <h4>{{revent.title}}</h4>
+                <p>
+                    <label>{{revent.venue_name}}</label><br />
+                    <label>{{revent.venue_address}}</label><br />
+                    <label>{{revent.start_time}}</label>
+                </p>
+            </article>
+        </section>
+    </div>
+</div>
